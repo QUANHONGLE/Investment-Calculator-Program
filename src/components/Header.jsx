@@ -1,9 +1,10 @@
-import { webImage } from "../assets/investment-calculator-logo.png";
+import logo from "../assets/investment-calculator-logo.png";
+
 export default function Header() {
   return (
-    <div id="header">
+    <header id="header">
+      <img src={logo} alt="investment-logo"></img>
       <h1>Investment Calculator</h1>
-      <img src={webImage} alt="Web Image" />
-    </div>
+    </header>
   );
 }
