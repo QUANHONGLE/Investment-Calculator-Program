@@ -12,11 +12,14 @@ function App() {
     duration: 10,
   });
 
+  const inputIsValid = userInput.duration >= 1;
+
   function handleChange(inputIdentifier, newValue) {
     setUserInput((prevUserInput) => {
       return {
         ...prevUserInput,
-        [inputIdentifier]: newValue,
+        // convert from string to number value
+        [inputIdentifier]: +newValue,
       };
     });
   }
@@ -25,7 +28,11 @@ function App() {
     <>
       <Header />
       <UserInput userInput={userInput} onChangeInput={handleChange} />;
-      <Results userInput={userInput} />
+      {inputIsValid ? (
+        <Results userInput={userInput} />
+      ) : (
+        <p className="center">Please enter a nonzero duration</p>
+      )}
     </>
   );
 }
